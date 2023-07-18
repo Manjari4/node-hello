@@ -1,0 +1,11 @@
+trigger:
+- main
+
+pool:
+  default
+
+steps:
+- script: |
+    npm install
+    npm version 1.$(Build.BuildId) --no-git-tag-version && npm publish
+  displayName: 'npm install and build'
